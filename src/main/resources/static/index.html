@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Employee Management System</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+	<div class="container">
+		<header>
+			<h1>Employee Management System</h1>
+			<button id="addEmployeeBtn">+ Add Employee</button>
+		</header>
+
+
+
+		<div id="employeeFormContainer" class="form-container" style="display: none;">
+			<h2 id="formTitle">Add Employee</h2>
+
+			<form id="employeeForm" novalidate>
+				<label for="employeeId">Employee ID</label>
+				<input type="number" id="employeeId" min="1">
+				<small class="error" id="employeeIdError"></small>
+
+				<label for="employeeName">Name</label>
+				<input type="text" id="employeeName">
+				<small class="error" id="employeeNameError"></small>
+
+				<label for="employeeEmail">Email</label>
+				<input type="text" id="employeeEmail">
+				<small class="error" id="employeeEmailError"></small>
+
+				<label for="employeePhone">Phone</label>
+				<input type="tel" id="employeePhone" maxlength="10">
+				<small class="error" id="employeePhoneError"></small>
+
+				<div class="form-actions">
+					<button type="submit" id="saveEmployeeBtn">Save Employee</button>
+					<button type="button" id="cancelFormBtn">Cancel</button>
+				</div>
+			</form>
+		</div>
+
+
+
+
+		<table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Phone</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody id="employeeTableBody">
+				<!-- JavaScript will insert employees here -->
+			</tbody>
+		</table>
+
+
+
+		<div class="search-container">
+			<input type="search" id="searchInput" placeholder="Search by name or email..."
+				aria-label="Search employees by name or email">
+
+			<button type="button" id="searchBtn">Search</button>
+			<button type="button" id="clearSearchBtn">Clear</button>
+		</div>
+
+
+		<div class="sorting-container">
+			<label for="sortAttribute">Sort by:</label>
+
+			<select id="sortAttribute">
+				<option value="id">ID</option>
+				<option value="name">Name</option>
+				<option value="email">Email</option>
+			</select>
+
+			<select id="sortOrder">
+				<option value="asc">Ascending ↑</option>
+				<option value="desc">Descending ↓</option>
+			</select>
+
+			<button type="button" id="sortBtn">Apply Sort</button>
+		</div>
+
+		<div class="pagination" id="pagination"></div>
+
+		<!-- Add Employee Details block here -->
+		<div id="employeeDetails" class="details-container" style="display: none;">
+			<div class="details-header">
+				<h2>Employee Details</h2>
+				<button type="button" id="closeDetailsBtn">Close</button>
+			</div>
+
+			<div class="details-grid">
+				<div>
+					<span>Employee ID</span>
+					<p id="detailId"></p>
+				</div>
+
+				<div>
+					<span>Name</span>
+					<p id="detailName"></p>
+				</div>
+
+				<div>
+					<span>Email</span>
+					<p id="detailEmail"></p>
+				</div>
+
+				<div>
+					<span>Phone</span>
+					<p id="detailPhone"></p>
+				</div>
+			</div>
+		</div>
+
+
+
+		<p id="message"></p>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
